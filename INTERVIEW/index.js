@@ -1,107 +1,107 @@
 //Q1 Solution 
 
-    // function reverseAndCheckPrime(num){
-    //     let reverse = 0;
-    //     while ( num > 0) {
-    //         reverse = reverse * 10 + num % 10;
-    //         num = Math.floor(num / 10);
-    //     }
+    function reverseAndCheckPrime(num){
+        let reverse = 0;
+        while ( num > 0) {
+            reverse = reverse * 10 + num % 10;
+            num = Math.floor(num / 10);
+        }
 
-    //     const primeNum = [];
-    //     for(let i = 2; i <= Math.sqrt(reverse); i++) {
-    //         if(reverse % i === 0) {
-    //             primeNum.push(i);
-    //             reverse = i;
-    //             i--;
-    //         }
-    //     }
+        const primeNum = [];
+        for(let i = 2; i <= Math.sqrt(reverse); i++) {
+            if(reverse % i === 0) {
+                primeNum.push(i);
+                reverse = i;
+                i--;
+            }
+        }
 
-    //     if (reverse > 1){
-    //         primeNum.push(reverse);
-    //     }
+        if (reverse > 1){
+            primeNum.push(reverse);
+        }
 
-    //     if(primeNum.length > 0) {
-    //         return `Yes ${primeNum}`;
-    //     } else {
-    //         return "No";
-    //     }
-    // }
+        if(primeNum.length > 0) {
+            return `Yes ${primeNum}`;
+        } else {
+            return "No";
+        }
+    }
 
-    // console.log(reverseAndCheckPrime(123));
-    // console.log(reverseAndCheckPrime(1500));
-    // console.log(reverseAndCheckPrime(1000));
+    console.log(reverseAndCheckPrime(123));
+    console.log(reverseAndCheckPrime(1500));
+    console.log(reverseAndCheckPrime(1000));
 
 
 //Q2 Solution
 
-    // function groupAnagrams(strs){
-    //     const isAnagram = {};
-    //     for(const str of strs) {
-    //         const sortedStr = str.split("").sort().join("");
-    //         if(!isAnagram[sortedStr]){
-    //             isAnagram[sortedStr] = [];
-    //         }
+    function groupAnagrams(strs){
+        const isAnagram = {};
+        for(const str of strs) {
+            const sortedStr = str.split("").sort().join("");
+            if(!isAnagram[sortedStr]){
+                isAnagram[sortedStr] = [];
+            }
 
-    //         isAnagram[sortedStr].push(str);
-    //     }
-    //     return Object.values(isAnagram);
-    // }
+            isAnagram[sortedStr].push(str);
+        }
+        return Object.values(isAnagram);
+    }
 
-    // const input = ["eat","tea","tan","ate","nat","bat"];
-    // const result = groupAnagrams(input);
-    // console.log(result);
+    const input = ["eat","tea","tan","ate","nat","bat"];
+    const result = groupAnagrams(input);
+    console.log(result);
 
-    // const input2 = [""];
-    // const result2 = groupAnagrams(input2);
-    // console.log(result2);
+    const input2 = [""];
+    const result2 = groupAnagrams(input2);
+    console.log(result2);
 
 
 //Q3  Solution 
  
-    // function wordBreak(s, wordArr){
-    //     const dp = new Array(s.length + 1).fill(false);
-    //     dp[0] = true;
+    function wordBreak(s, wordArr){
+        const dp = new Array(s.length + 1).fill(false);
+        dp[0] = true;
 
-    //     for(let i = s.length -1; i >= 0; i--) {
-    //         for(const word of wordArr){
-    //             if(s.slice(i, i + word.length) === word || dp[i + word.length]) {
-    //                 dp[i] = true;
-    //                 break;
-    //             }
-    //         }
-    //     }
-    //     return dp[0];
-    // }
+        for(let i = s.length -1; i >= 0; i--) {
+            for(const word of wordArr){
+                if(s.slice(i, i + word.length) === word || dp[i + word.length]) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        return dp[0];
+    }
 
-    // const s1 = "leetcode";
-    // const wordArr1 = ["leet","code"];
-    // console.log(wordBreak(s1,wordArr1));
+    const s1 = "leetcode";
+    const wordArr1 = ["leet","code"];
+    console.log(wordBreak(s1,wordArr1));
 
-    // const s2 = "applepenapple";
-    // const wordArr2 = ["apple","pen"];
-    // console.log(wordBreak(s2,wordArr2));
+    const s2 = "applepenapple";
+    const wordArr2 = ["apple","pen"];
+    console.log(wordBreak(s2,wordArr2));
 
 
 //Q4 Solution 
 
-    // function largestNum(nums){
-    //     const compare = (a,b) => {
-    //         const str1 = a.toString() + b.toString();
-    //         const str2 = b.toString() + a.toString();
-    //         return str2 - str1;
-    //     };
+    function largestNum(nums){
+        const compare = (a,b) => {
+            const str1 = a.toString() + b.toString();
+            const str2 = b.toString() + a.toString();
+            return str2 - str1;
+        };
 
-    //     nums.sort(compare);
+        nums.sort(compare);
 
-    //     const largestNumStr = nums.join("");
-    //     return largestNumStr;
-    // }
+        const largestNumStr = nums.join("");
+        return largestNumStr;
+    }
 
-    // const nums1 = [10,2];
-    // console.log(largestNum(nums1)); //Output : 210
+    const nums1 = [10,2];
+    console.log(largestNum(nums1)); //Output : 210
 
-    // const nums2 = [3,30,34,5,9];
-    // console.log(largestNum(nums2)); //Output : 9534330
+    const nums2 = [3,30,34,5,9];
+    console.log(largestNum(nums2)); //Output : 9534330
 
 
 //Q5 Solution 
